@@ -2,19 +2,19 @@
 
 {% block content %}
 <div class=container>
-<div class=form-group>
-<form action="/processform" id=pass>
-    <label for=minw class=form-control>Minimum Word Length</label>
+    <h1>XKCD-style Password Generator</h1>
+    <div class = "col-md-6">
+    <div class=form-group>
+    <form action="/processform" id=pass>
+    <label for=minw class="control-label">Minimum Word Length</label>
     <select id=minw name="minword" class=form-control form=pass>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
     </select> <br>
     
-    <label for=maxw class=form-control>Maximum Word Length</label>
+    <label for=maxw class="control-label">Maximum Word Length</label>
     <select id=maxw name="maxword" class=form-control form=pass>
         <option value="10">10</option>
         <option value="11">11</option>
@@ -24,7 +24,7 @@
         <option value="15">15</option>
     </select> <br>
 
-    <label for=minp class=form-control>Minimum Password Length</label>
+    <label for=minp class="control-label">Minimum Password Length</label>
     <select id=minp name="minpass" class=form-control form=pass> 
         <option value="8">8</option>
         <option value="9">9</option>
@@ -33,7 +33,7 @@
         <option value="12">12</option>
     </select> <br>
     
-    <label for=maxp class=form-control>Maximum Password Length</label>
+    <label for=maxp class="control-label">Maximum Password Length</label>
     <select id=maxp name="maxpass" class=form-control form=pass>
         <option value="18">18</option>
         <option value="19">19</option>
@@ -50,14 +50,18 @@
         <option value="30">30</option>
     </select> <br>
     
-    <label for=sub class=form-control>Number Substitution</label>
-    <input type=checkbox id=sub name=make value=numsub class=form-check> <br>
+    <label for=sub class="control-label">Number Substitution</label>
+    <input type=checkbox id=sub name=make value=numsub class="form-check"> <br>
     
-    <label for=phrase class=form-control>Phrase</label>
+    <label for=phrase class="control-label">"Adjective Noun Verb Adverb" Phrase</label>
     <input type=checkbox id=phrase name=make value=phrase class=form-check> <br>
 
     <button type=submit class=form-control>Get Passwords</button>
 </form>
+</div>
+</div>
+<div class="col-md-6">
+    <img src="https://imgs.xkcd.com/comics/password_strength.png" class="img-responsive" alt="XKCD comic concerning the effectiveness of various styles of passwords">
 </div>
 </div>
 {% endblock %}

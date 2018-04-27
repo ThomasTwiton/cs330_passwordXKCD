@@ -38,6 +38,25 @@ def genpassword(wordbank):
         if length <= int(request.args['maxpass']):
             if length >= int(request.args['minpass']):
                 validpassword = True
+    try:
+        if request.args['make'] == 'numsub':
+            for j in range(0, len(mypassword)):
+                word = mypassword[j]
+                word = list(word)
+                #print(word)
+                for i in range(0, len(word)): 
+                    #print(word[i])               
+                    if word[i] == 'a':
+                        word[i] = '4'
+                    if word[i] == 'e':
+                        word[i] = '3'
+                    if word[i] == 'o':
+                        word[i] = '0'
+                word = ''.join(word)
+                #print(word)
+                mypassword[j] = word
+    except:
+        pass
 
     return mypassword
 
