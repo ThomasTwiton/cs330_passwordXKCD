@@ -1,0 +1,63 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<div class=container>
+<div class=form-group>
+<form action="/processform" id=pass>
+    <label for=minw class=form-control>Minimum Word Length</label>
+    <select id=minw name="minword" class=form-control form=pass>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select> <br>
+    
+    <label for=maxw class=form-control>Maximum Word Length</label>
+    <select id=maxw name="maxword" class=form-control form=pass>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+    </select> <br>
+
+    <label for=minp class=form-control>Minimum Password Length</label>
+    <select id=minp name="minpass" class=form-control form=pass> 
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select> <br>
+    
+    <label for=maxp class=form-control>Maximum Password Length</label>
+    <select id=maxp name="maxpass" class=form-control form=pass>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+    </select> <br>
+    
+    <label for=sub class=form-control>Number Substitution</label>
+    <input type=checkbox id=sub name=make value=numsub class=form-check> <br>
+    
+    <label for=phrase class=form-control>Phrase</label>
+    <input type=checkbox id=phrase name=make value=phrase class=form-check> <br>
+
+    <button type=submit class=form-control>Get Passwords</button>
+</form>
+</div>
+</div>
+{% endblock %}
