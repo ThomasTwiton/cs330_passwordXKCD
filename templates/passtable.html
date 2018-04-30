@@ -29,6 +29,18 @@
 
 </table>
 
+<button class=btn onclick="refresh()">Refresh table</button> <br> <br>
+<button class=btn onclick="gohome()">Choose different parameters</button>
+<script>
+    function refresh(){
+        window.location.reload()
+    }
+
+    function gohome(){
+        window.location = "/"
+    }
+</script>
+
 </div>
 
 {% endblock %}

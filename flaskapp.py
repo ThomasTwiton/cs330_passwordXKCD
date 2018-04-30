@@ -9,12 +9,28 @@ Bootstrap(app)
 def hello():
     return render_template('index.html')
 
+def rateTypeability(word):
+    leftKeystrokes = "qwertasdfgzxcvb"
+    rightKeystrokes = "yuiophjklnm"
+    typeability = 0.0 
+    #alternating hands or double letters
+    for i in range(0, len(word)-1):
+        if word[i] in leftKeystrokes and word[i+1] in rightKeystrokes:
+            typeability += 1
+        elif word[i] in rightKeystrokes and word[i+1] in leftKeystrokes:
+            typeability += 1
+        elif word[i] == word[i+1]:
+            typeabilty += 1
+
+    return typeability / (len(word)-1)
+
 def genpassword(wordbank):    
     #find words that fit the min and max word lengths specified in the form
     validchoices = []
     for word in wordbank:
-        #print(len(word) <= int(request.args['maxword']))
-        if len(word) >= int(request.args['minword']) and len(word) <= int(request.args['maxword']):
+        #print(len(word) <= int(request.args['maxword']))        
+        #EXPLANATION OF > and NOT >=: words aren't stripped of the newline character yet
+        if len(word) > int(request.args['minword']) and len(word) < int(request.args['maxword']):
             validchoices.append(word.strip())
     #print(validchoices)
 
@@ -34,10 +50,23 @@ def genpassword(wordbank):
         #print(request.args['maxpass'])
         #print(length >= int(request.args['minpass']))
         #print(length <= int(request.args['maxpass']))
-
+        
         if length <= int(request.args['maxpass']):
             if length >= int(request.args['minpass']):
                 validpassword = True
+        try:
+            if request.args['make'] == 'easy':
+                for k in range(0, len(mypassword)):
+                    word = mypassword[k]
+                    word = list(word)
+                    typeability = rateTypeability(word)
+                    if typeability < 0.7:
+                        validpassword = False
+                    #print(''.join(word))
+                    #print(typeability)
+        except:
+            pass
+
     try:
         if request.args['make'] == 'numsub':
             for j in range(0, len(mypassword)):
